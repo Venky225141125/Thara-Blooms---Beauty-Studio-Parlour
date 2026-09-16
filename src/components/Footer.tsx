@@ -76,7 +76,14 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-start gap-2.5">
               <MapPin className="w-4 h-4 text-[#C9A44C] shrink-0 mt-0.5" />
-              <span>{siteConfig.contact.address}, {siteConfig.contact.city}</span>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${siteConfig.contact.address}, ${siteConfig.contact.city}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#E6CE8A] transition-colors"
+              >
+                {siteConfig.contact.address}, {siteConfig.contact.city}
+              </a>
             </div>
 
             <div className="flex items-center gap-2.5">

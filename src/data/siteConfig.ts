@@ -42,27 +42,26 @@ export const siteConfig: SiteConfig = {
   description: "Bespoke beauty rituals, bridal couture artistry, rejuvenating skin care, and luxury hair styling thoughtfully curated around you.",
   
   contact: {
-    phone: "+1234567890", // Configurable WhatsApp/Tel
-    displayPhone: "+1 (234) 567-890",
+    phone: "+918985690880",
+    displayPhone: "+91 89856 90880",
     email: "contact@tharablooms.com",
-    address: "Boutique Lane, Luxury Arcade, Suite 104",
-    city: "City Center"
+    address: "Near Phool Bagh",
+    city: "Bobbili"
   },
 
   whatsapp: {
-    phone: "+1234567890",
+    phone: "+918985690880",
     message: "Hi Thara Blooms, I would like to book an appointment with you."
   },
 
   instagram: {
-    handle: "@tharablooms",
-    url: "https://instagram.com/tharablooms"
+    handle: "@_tarablooms_",
+    url: "https://www.instagram.com/_tarablooms_?utm_source=qr&stkn=MWh4djV5MDE0aGV5Ng=="
   },
 
   hours: [
-    { day: "Monday – Friday", time: "09:30 AM – 08:00 PM" },
-    { day: "Saturday", time: "09:00 AM – 08:30 PM" },
-    { day: "Sunday", time: "10:00 AM – 06:00 PM" }
+    { day: "Monday – Saturday", time: "09:30 AM – 08:30 PM" },
+    { day: "Sunday", time: "10:00 AM – 06:30 PM" }
   ],
 
   booking: {
@@ -70,8 +69,8 @@ export const siteConfig: SiteConfig = {
   },
 
   social: {
-    instagram: "https://instagram.com/tharablooms",
-    whatsapp: "https://wa.me/+1234567890",
+    instagram: "https://www.instagram.com/_tarablooms_?utm_source=qr&stkn=MWh4djV5MDE0aGV5Ng==",
+    whatsapp: "https://wa.me/918985690880",
     facebook: "https://facebook.com/tharablooms",
     pinterest: "https://pinterest.com/tharablooms"
   }

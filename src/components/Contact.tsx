@@ -74,9 +74,18 @@ export const Contact: React.FC<ContactProps> = ({ onOpenBooking }) => {
                   <span className="text-[10px] font-semibold tracking-wider text-[#A77A28] uppercase">
                     Studio Location
                   </span>
-                  <p className="text-sm text-[#171315] mt-0.5 leading-relaxed">
+                  <p className="text-sm text-[#171315] mt-0.5 leading-relaxed font-medium">
                     {siteConfig.contact.address}, {siteConfig.contact.city}
                   </p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${siteConfig.contact.address}, ${siteConfig.contact.city}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-[#8D6824] hover:text-[#C96C83] mt-1 group"
+                  >
+                    <span>Get Directions on Map</span>
+                    <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
                 </div>
               </div>
 
