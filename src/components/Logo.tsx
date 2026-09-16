@@ -68,20 +68,24 @@ export const Logo: React.FC<LogoProps> = ({
       xl: 'w-88 sm:w-96 max-w-full'
     }[size];
 
-    const src = imgError ? '/logo-top-text-bottom.svg' : '/logo-top-text-bottom.png';
+    const src = isDark
+      ? imgError
+        ? '/logo-top-text-bottom-dark.svg'
+        : '/logo-top-text-bottom-dark.png'
+      : imgError
+      ? '/logo-top-text-bottom.svg'
+      : '/logo-top-text-bottom.png';
 
     return (
       <div
-        className={`flex flex-col items-center justify-center text-center select-none ${sizeClasses} ${
-          isDark ? 'bg-white/95 backdrop-blur-xs p-4 rounded-2xl shadow-sm border border-[#C9A44C]/30' : ''
-        } ${className}`}
+        className={`flex flex-col items-center justify-center text-center select-none ${sizeClasses} ${className}`}
       >
         <img
           src={src}
           onError={() => setImgError(true)}
           alt={alt}
           referrerPolicy="no-referrer"
-          className="w-full h-auto object-contain"
+          className="w-full h-auto object-contain transition-all duration-300 drop-shadow-xs"
         />
       </div>
     );
@@ -96,20 +100,24 @@ export const Logo: React.FC<LogoProps> = ({
     xl: 'h-24 sm:h-28 md:h-32'
   }[size];
 
-  const src = imgError ? '/long-logo.svg' : '/long-logo.png';
+  const src = isDark
+    ? imgError
+      ? '/long-logo-dark.svg'
+      : '/long-logo-dark.png'
+    : imgError
+    ? '/long-logo.svg'
+    : '/long-logo.png';
 
   return (
     <div
-      className={`relative flex items-center select-none ${heightClasses} ${
-        isDark ? 'bg-white/95 backdrop-blur-xs px-3.5 py-1.5 rounded-xl shadow-xs border border-[#C9A44C]/30' : ''
-      } ${className}`}
+      className={`relative flex items-center select-none ${heightClasses} ${className}`}
     >
       <img
         src={src}
         onError={() => setImgError(true)}
         alt={alt}
         referrerPolicy="no-referrer"
-        className="h-full w-auto object-contain transition-all duration-300"
+        className="h-full w-auto object-contain transition-all duration-300 drop-shadow-xs"
       />
     </div>
   );

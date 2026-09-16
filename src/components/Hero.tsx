@@ -148,7 +148,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
               {/* Floating Element 1: Brand Emblem Badge (Top Left) */}
               <div
-                className="absolute -top-3 -left-3 sm:-top-6 sm:-left-6 bg-white/90 backdrop-blur-md p-2 rounded-2xl shadow-lg border border-[#C9A44C]/30 animate-soft-float"
+                className="absolute -top-3 -left-3 sm:-top-6 sm:-left-6 rounded-full shadow-lg border border-[#C9A44C]/35 animate-soft-float"
                 style={{
                   transform: `translate(${mouseOffset.x * -0.5}px, ${mouseOffset.y * -0.5}px)`
                 }}
