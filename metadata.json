@@ -1,0 +1,6 @@
+{
+  "name": "Thara Blooms - Beauty Studio & Parlour",
+  "description": "Thara Blooms Beauty Studio & Parlour — Glow with Grace. Luxury hair styling, skincare, bridal artistry, and bespoke beauty treatments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

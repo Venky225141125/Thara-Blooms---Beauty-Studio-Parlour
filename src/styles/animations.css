@@ -1,0 +1,71 @@
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes softFloatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1.5deg);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(239, 169, 184, 0.25), 0 0 30px rgba(230, 206, 138, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(239, 169, 184, 0.45), 0 0 45px rgba(230, 206, 138, 0.25);
+  }
+}
+
+.animate-soft-float {
+  animation: softFloat 6s ease-in-out infinite;
+}
+
+.animate-soft-float-delayed {
+  animation: softFloatReverse 7s ease-in-out 1.5s infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 4s ease-in-out infinite;
+}
+
+/* Hide scrollbar for carousel but keep functional scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-soft-float,
+  .animate-soft-float-delayed,
+  .animate-gentle-pulse,
+  .animate-subtle-glow {
+    animation: none !important;
+  }
+}

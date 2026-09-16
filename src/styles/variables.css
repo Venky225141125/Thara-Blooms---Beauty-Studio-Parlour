@@ -1,0 +1,110 @@
+:root {
+  /* Primary Soft Pink Palette */
+  --pink-50: #FFF7F8;
+  --pink-100: #FCECEF;
+  --pink-200: #F8DDE3;
+  --pink-300: #F4C7D0;
+  --pink-400: #EFA9B8;
+  --pink-500: #D98296;
+  --pink-600: #C96C83;
+
+  /* Ivory / Warm White Foundation */
+  --ivory-50: #FFFDFC;
+  --ivory-100: #FBF7F5;
+  --ivory-200: #F6EFEC;
+
+  /* Champagne Gold */
+  --gold-light: #E6CE8A;
+  --gold: #C9A44C;
+  --gold-dark: #A77A28;
+
+  /* High Legibility Text */
+  --text-primary: #171315;
+  --text-secondary: #655B5E;
+  --text-muted: #8D8185;
+
+  /* Nature Green Accent from Thara Blooms identity */
+  --leaf-green: #58745F;
+  --leaf-green-light: #829C86;
+
+  /* Base */
+  --white: #FFFFFF;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-cormorant: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Gradients */
+  --gradient-main: linear-gradient(
+    180deg,
+    #FFFDFC 0%,
+    #FFF7F8 35%,
+    #FCECEF 68%,
+    #FFFDFC 100%
+  );
+
+  --gradient-hero: radial-gradient(
+    circle at 18% 22%,
+    rgba(244, 199, 208, 0.38),
+    transparent 32%
+  ),
+  radial-gradient(
+    circle at 82% 20%,
+    rgba(230, 206, 138, 0.18),
+    transparent 28%
+  ),
+  linear-gradient(
+    135deg,
+    #FFFDFC 0%,
+    #FFF5F7 48%,
+    #FCECEF 100%
+  );
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    #E6CE8A 0%,
+    #C9A44C 50%,
+    #A77A28 100%
+  );
+
+  --gradient-pink: linear-gradient(
+    135deg,
+    #EFA9B8 0%,
+    #D98296 50%,
+    #C96C83 100%
+  );
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.gold-border {
+  border: 1px solid rgba(201, 164, 76, 0.35);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(252, 236, 239, 0.65)
+  );
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #C9A44C 0%, #E6CE8A 50%, #A77A28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pink-text-gradient {
+  background: linear-gradient(135deg, #D98296 0%, #C96C83 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,81 @@
+.border-glow-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  isolation: isolate;
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.border-glow-container:hover {
+  transform: translateY(-4px);
+}
+
+/* Base card body */
+.border-glow-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color, #FFFDFC);
+  border-radius: calc(var(--border-radius, 28px) - 1.5px);
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(101, 91, 94, 0.06), 0 2px 10px rgba(201, 164, 76, 0.04);
+  transition: box-shadow 350ms ease;
+}
+
+.border-glow-container:hover .border-glow-inner {
+  box-shadow: 0 20px 45px rgba(217, 130, 150, 0.12), 0 4px 16px rgba(201, 164, 76, 0.08);
+}
+
+/* Subtle fallback champagne-pink border */
+.border-glow-outline {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius, 28px);
+  pointer-events: none;
+  border: 1px solid rgba(201, 164, 76, 0.22);
+  z-index: 3;
+  transition: border-color 300ms ease;
+}
+
+/* Interactive Cursor-Directed Edge Mesh Glow */
+.border-glow-mesh {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(var(--border-radius, 28px) + 1.5px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  background: conic-gradient(
+    from var(--angle, 0deg) at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--color-1, #EFA9B8) 0deg,
+    var(--color-2, #E6CE8A) 120deg,
+    var(--color-3, #F7CDD5) 240deg,
+    var(--color-1, #EFA9B8) 360deg
+  );
+  filter: blur(var(--glow-radius, 24px));
+}
+
+.border-glow-mesh-line {
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--border-radius, 28px) + 1px);
+  pointer-events: none;
+  z-index: 4;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  background: radial-gradient(
+    calc(var(--cone-spread, 22px) * 3) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(230, 206, 138, 0.85) 0%,
+    rgba(239, 169, 184, 0.7) 35%,
+    rgba(255, 253, 252, 0.2) 65%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  padding: 1.5px;
+}

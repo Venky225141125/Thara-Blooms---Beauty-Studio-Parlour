@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import "./styles/variables.css";
+@import "./styles/animations.css";
+
+/* Base aesthetic resets and typography rules */
+html {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--ivory-50);
+}
+
+::selection {
+  background-color: var(--pink-300);
+  color: var(--text-primary);
+}
+
+/* Glassmorphism Luxury Utilities */
+.glass-luxury {
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 164, 76, 0.18);
+}
+
+.glass-luxury-dark {
+  background: rgba(33, 24, 27, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(230, 206, 138, 0.2);
+}
+
+/* Custom Cursor Rules (Desktop fine pointers only) */
+@media (hover: hover) and (pointer: fine) {
+  .has-custom-cursor {
+    cursor: none !important;
+  }
+  .has-custom-cursor a,
+  .has-custom-cursor button,
+  .has-custom-cursor input,
+  .has-custom-cursor select,
+  .has-custom-cursor textarea,
+  .has-custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+}
+
