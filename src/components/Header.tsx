@@ -62,10 +62,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           {/* Logo */}
           <a
             href="#home"
-            className="flex items-center focus:outline-hidden"
+            className="flex items-center focus:outline-hidden group"
             aria-label="Thara Blooms Home"
           >
-            <Logo />
+            {/* Mobile short-logo, Desktop long-logo */}
+            <div className="block sm:hidden">
+              <Logo variant="short-logo" size="sm" />
+            </div>
+            <div className="hidden sm:block">
+              <Logo variant="long-logo" size="sm" />
+            </div>
           </a>
 
           {/* Desktop Nav Links */}
@@ -143,6 +149,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
 
           {/* Navigation Links List */}
           <div className="flex flex-col space-y-4 my-auto">
+            {/* Top Logo in Drawer */}
+            <div className="flex justify-center pb-2">
+              <Logo variant="logo-top-text-bottom" size="sm" />
+            </div>
+
             <span className="text-[10px] tracking-[0.26em] uppercase font-semibold text-[#A77A28]">
               Navigation
             </span>

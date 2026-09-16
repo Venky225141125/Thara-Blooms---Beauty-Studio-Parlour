@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col items-start space-y-4">
-            <Logo isDark={true} />
+            <Logo variant="long-logo" size="md" isDark={true} />
             <p className="text-xs sm:text-sm text-[#8D8185] max-w-sm leading-relaxed mt-2 font-normal">
               {siteConfig.description}
             </p>

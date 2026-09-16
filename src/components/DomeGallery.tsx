@@ -654,7 +654,7 @@ export const DomeGallery: React.FC<DomeGalleryProps> = ({
                   onClick={onTileClick}
                   onPointerUp={onTilePointerUp}
                 >
-                  <img src={it.src} draggable={false} alt={it.alt} />
+                  <img src={it.src} draggable={false} alt={it.alt} referrerPolicy="no-referrer" />
                 </div>
               </div>
             ))}

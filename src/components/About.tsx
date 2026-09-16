@@ -1,5 +1,6 @@
 import React from 'react';
 import { SectionHeading } from './SectionHeading';
+import { Logo } from './Logo';
 import { Sparkles, Heart, Flower2, CheckCircle2 } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -20,34 +21,36 @@ export const About: React.FC = () => {
                   src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=900&auto=format&fit=crop"
                   alt="Thara Blooms Studio Interior"
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#171315]/45 via-transparent to-transparent" />
 
-                {/* Floating caption pill */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C9A44C]/30 text-center">
-                  <span className="font-serif text-sm text-[#171315] font-medium block">
+                {/* Floating caption pill on bottom-left, guaranteed zero collision */}
+                <div className="absolute bottom-5 left-5 max-w-[210px] sm:max-w-[240px] p-3.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#C9A44C]/35 shadow-lg z-10 text-left">
+                  <span className="font-serif text-xs sm:text-sm text-[#110E10] font-semibold block leading-tight">
                     A Sanctuary for the Senses
                   </span>
-                  <span className="font-cormorant italic text-xs text-[#D98296] block mt-0.5">
-                    Thoughtful hospitality in every detail
+                  <span className="font-cormorant italic text-xs text-[#C96C83] block mt-1 leading-snug">
+                    Thoughtful hospitality in every ritual
                   </span>
                 </div>
               </div>
 
               {/* Offset Overlapping Detail Frame */}
-              <div className="hidden sm:block absolute -bottom-8 -right-6 w-52 h-64 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+              <div className="hidden sm:block absolute -bottom-6 -right-4 md:-right-6 w-44 md:w-50 h-56 md:h-64 rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 group">
                 <img
-                  src="https://images.unsplash.com/photo-1512290900672-1f48ec3a0d5c?q=80&w=600&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=600&auto=format&fit=crop"
                   alt="Botanical skincare detail"
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Decorative Gold Seal */}
-              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-to-br from-[#FFFDFC] to-[#FCECEF] p-3 shadow-md border border-[#C9A44C]/35 flex items-center justify-center">
-                <Flower2 className="w-8 h-8 text-[#C9A44C]" />
+              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-to-br from-[#FFFDFC] to-[#FCECEF] p-1.5 shadow-md border border-[#C9A44C]/35 flex items-center justify-center">
+                <Logo variant="short-logo" size="md" />
               </div>
             </div>
           </div>

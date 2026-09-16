@@ -36,7 +36,7 @@ export const galleryImages: GalleryImage[] = [
     category: "Nail Spa"
   },
   {
-    src: "https://images.unsplash.com/photo-1512290900672-1f48ec3a0d5c?q=80&w=800&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop",
     alt: "Editorial skincare and delicate aesthetic flowers",
     category: "Botanical Care"
   },

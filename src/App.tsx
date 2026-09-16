@@ -46,17 +46,19 @@ export default function App() {
         {/* 3. Trust / Introduction Strip */}
         <TrustStrip />
 
-        {/* 4. Services Section (Curved Horizontal Carousel + BorderGlow Cards) */}
-        <section id="services" className="py-20 md:py-28 relative bg-[#FFFDFC] overflow-hidden">
-          {/* Subtle Ambient Radial Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#FCECEF]/40 blur-[100px] pointer-events-none" />
+        {/* 4. Services Section (Infinite 3D Coverflow Carousel on Luxurious Light Canvas) */}
+        <section id="services" className="py-20 md:py-28 relative bg-[#FFFDFC] text-[#110E10] overflow-hidden">
+          {/* Subtle Ambient Radial Glows */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[850px] h-[550px] rounded-full bg-[#FCECEF]/65 blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-10 right-1/4 w-[500px] h-[350px] rounded-full bg-[#E6CE8A]/15 blur-[120px] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-2">
             <SectionHeading
               eyebrow="Signature Offerings"
               title="Beauty, Tailored to"
               italicWord="You"
-              subtitle="Curated treatments blending modern technique with restorative touch. Scroll horizontally to explore our signature rituals."
+              subtitle="Curated treatments blending modern technique with restorative touch. Select or swipe through our rituals on both sides."
+              isDark={false}
             />
           </div>
 

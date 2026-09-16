@@ -79,6 +79,7 @@ export const InstagramSection: React.FC = () => {
                 src={card.img}
                 alt={card.tag}
                 loading="lazy"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
 

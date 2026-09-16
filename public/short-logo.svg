@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Soft Blush Wash -->
+    <radialGradient id="slBlush" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stopColor="#FFF5F7" />
+      <stop offset="65%" stopColor="#FCE7EC" />
+      <stop offset="100%" stopColor="#F8D8DF" />
+    </radialGradient>
+
+    <!-- Metallic Gold Ring Gradient -->
+    <linearGradient id="slGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#D8B55C" />
+      <stop offset="25%" stopColor="#F5E4AA" />
+      <stop offset="55%" stopColor="#C9A44C" />
+      <stop offset="85%" stopColor="#E6CE8A" />
+      <stop offset="100%" stopColor="#9E7624" />
+    </linearGradient>
+
+    <!-- Floral Petal Gradients -->
+    <linearGradient id="slPetalPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFDEE6" />
+      <stop offset="45%" stopColor="#F49EB0" />
+      <stop offset="100%" stopColor="#D96983" />
+    </linearGradient>
+    <linearGradient id="slPetalDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#F6A7B8" />
+      <stop offset="100%" stopColor="#BD435E" />
+    </linearGradient>
+
+    <!-- Botanical Green Foliage -->
+    <linearGradient id="slGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#6C8F6F" />
+      <stop offset="60%" stopColor="#43684B" />
+      <stop offset="100%" stopColor="#2A4531" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadow Filter -->
+    <filter id="slShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#110E10" floodOpacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Blush Wash Center Circle -->
+  <circle cx="150" cy="150" r="132" fill="url(#slBlush)" />
+
+  <!-- Outer & Inner Concentric Gold Metallic Rings -->
+  <circle cx="150" cy="150" r="126" stroke="url(#slGold)" stroke-width="2.5" />
+  <circle cx="150" cy="150" r="118" stroke="url(#slGold)" stroke-width="1.2" opacity="0.8" />
+
+  <!-- === TOP-LEFT FLORAL BOUQUET === -->
+  <g filter="url(#slShadow)">
+    <!-- Stem Arc -->
+    <path d="M72 105 C66 90 72 69 90 57 C102 48 120 45 132 45" stroke="url(#slGreen)" stroke-width="1.8" fill="none" opacity="0.85" />
+    <!-- Botanical Leaves -->
+    <path d="M60 117 C50 111 48 99 54 90 C62 96 66 108 60 117 Z" fill="url(#slGreen)" />
+    <path d="M48 93 C39 87 39 75 47 67 C53 75 56 87 48 93 Z" fill="url(#slGreen)" />
+    <path d="M66 75 C60 63 66 51 75 48 C77 57 74 69 66 75 Z" fill="url(#slGreen)" />
+    <path d="M93 54 C96 40 108 36 117 39 C114 48 105 54 93 54 Z" fill="url(#slGreen)" />
+    <path d="M117 42 C123 30 135 30 141 35 C137 42 129 45 117 42 Z" fill="url(#slGreen)" />
+
+    <!-- Flower Buds -->
+    <ellipse cx="96" cy="38" rx="5" ry="6.5" fill="url(#slPetalPink)" />
+    <ellipse cx="110" cy="33" rx="4.5" ry="6" fill="url(#slPetalPink)" />
+
+    <!-- Main Lush Blossom -->
+    <g transform="translate(84, 69)">
+      <path d="M0 0 C-15 -27 15 -27 0 0 Z" fill="url(#slPetalPink)" />
+      <path d="M0 0 C24 -18 33 12 0 0 Z" fill="url(#slPetalPink)" />
+      <path d="M0 0 C18 24 -12 30 0 0 Z" fill="url(#slPetalPink)" />
+      <path d="M0 0 C-24 18 -30 -12 0 0 Z" fill="url(#slPetalPink)" />
+      <path d="M0 0 C-12 -24 21 -18 0 0 Z" fill="url(#slPetalDeep)" opacity="0.85" />
+      <path d="M0 0 C21 -6 21 21 0 0 Z" fill="url(#slPetalDeep)" opacity="0.85" />
+      <!-- Golden Stamens -->
+      <circle cx="0" cy="0" r="4.8" fill="#D98296" />
+      <circle cx="-2.2" cy="-2.2" r="1.8" fill="#FCE4AA" />
+      <circle cx="2.2" cy="-1.8" r="1.6" fill="#FCE4AA" />
+      <circle cx="1.8" cy="2.2" r="1.8" fill="#FCE4AA" />
+      <circle cx="-1.8" cy="2" r="1.6" fill="#FCE4AA" />
+      <circle cx="0" cy="0" r="2" fill="#E6CE8A" />
+    </g>
+
+    <!-- Secondary Blossom -->
+    <g transform="translate(111, 54) scale(0.72)">
+      <circle cx="0" cy="-12" r="10" fill="url(#slPetalPink)" />
+      <circle cx="12" cy="-3" r="10" fill="url(#slPetalPink)" />
+      <circle cx="8" cy="12" r="10" fill="url(#slPetalPink)" />
+      <circle cx="-8" cy="12" r="10" fill="url(#slPetalPink)" />
+      <circle cx="-12" cy="-3" r="10" fill="url(#slPetalPink)" />
+      <circle cx="0" cy="1" r="5" fill="#E6CE8A" />
+    </g>
+  </g>
+
+  <!-- === BOTTOM-RIGHT FLORAL SPRIG === -->
+  <g filter="url(#slShadow)">
+    <path d="M195 234 C210 228 228 216 240 201 C249 189 255 171 255 159" stroke="url(#slGreen)" stroke-width="1.8" fill="none" opacity="0.85" />
+    <path d="M222 228 C231 236 243 234 249 225 C243 219 231 219 222 228 Z" fill="url(#slGreen)" />
+    <path d="M237 207 C249 212 258 206 261 195 C252 192 243 198 237 207 Z" fill="url(#slGreen)" />
+    <path d="M249 183 C260 185 267 176 267 165 C258 165 252 174 249 183 Z" fill="url(#slGreen)" />
+
+    <!-- Blossom in bottom right -->
+    <g transform="translate(222, 201) scale(0.9)">
+      <path d="M0 0 C-15 -24 15 -24 0 0 Z" fill="url(#slPetalPink)" />
+      <path d="M0 0 C24 -15 27 15 0 0 Z" fill="url(#slPetalPink)" />
+      <path d="M0 0 C15 24 -15 24 0 0 Z" fill="url(#slPetalPink)" />
+      <path d="M0 0 C-24 15 -24 -15 0 0 Z" fill="url(#slPetalPink)" />
+      <circle cx="0" cy="0" r="4.5" fill="#D98296" />
+      <circle cx="0" cy="0" r="2.2" fill="#FCE4AA" />
+    </g>
+  </g>
+
+  <!-- === BUTTERFLY ON TOP RIGHT === -->
+  <g transform="translate(189, 84) rotate(18) scale(1.1)">
+    <path d="M0 0 C-6 -18 -21 -18 -18 -3 C-15 6 -6 6 0 0 Z" fill="url(#slPetalPink)" stroke="#110E10" stroke-width="1.1" />
+    <path d="M0 0 C9 -21 27 -18 21 -3 C18 6 6 6 0 0 Z" fill="url(#slPetalPink)" stroke="#110E10" stroke-width="1.1" />
+    <path d="M0 0 C-7 6 -12 15 -6 16 C-1 16 0 7 0 0 Z" fill="url(#slPetalDeep)" stroke="#110E10" stroke-width="0.9" />
+    <path d="M0 0 C7 6 12 15 6 16 C1 16 0 7 0 0 Z" fill="url(#slPetalDeep)" stroke="#110E10" stroke-width="0.9" />
+    <ellipse cx="0" cy="3" rx="1.6" ry="8" fill="#110E10" />
+    <path d="M-0.7 -5 C-3 -9 -6 -10 -8 -10" stroke="#110E10" stroke-width="0.9" stroke-linecap="round" />
+    <path d="M0.7 -5 C3 -9 6 -10 8 -10" stroke="#110E10" stroke-width="0.9" stroke-linecap="round" />
+  </g>
+
+  <!-- === CENTERPIECE: INTERLOCKING 'TB' MONOGRAM WITH PROFILE & HAIR === -->
+  <g id="monogram">
+    <!-- Top Horizontal Serif Bar of the 'T' -->
+    <path d="M99 72 L186 72 C186 72 180 81 171 81 L147 81 L147 108 C147 108 138 102 132 96 L132 81 L111 81 C102 81 99 72 99 72 Z" fill="#110E10" />
+
+    <!-- Woman's Profile Silhouette (Facing Left) -->
+    <path d="M111 81
+             C108 87 105 94 100 99
+             C97 102 93 105 90 108
+             C87 111 85 115 88 118
+             C91 121 96 121 94 126
+             C93 129 88 130 87 133
+             C85 136 90 139 93 141
+             C96 142 93 145 88 148
+             C85 151 87 156 91 159
+             C96 162 100 168 102 174
+             C103 181 108 189 114 195
+             C123 202 135 205 141 204
+             C132 199 126 190 123 180
+             C120 171 121 162 118 153
+             C115 144 111 138 111 129
+             C111 120 115 111 121 105
+             C126 99 132 93 132 81
+             Z" fill="#110E10" />
+
+    <!-- Flowing Cascading Hair Strands intertwining with the B -->
+    <path d="M114 102
+             C109 112 112 126 120 135
+             C127 144 135 153 136 163
+             C138 174 132 186 121 193
+             C114 199 108 207 108 214
+             C108 219 114 222 121 219
+             C132 214 141 204 144 192
+             C147 177 141 163 132 153
+             C124 144 120 132 121 121
+             C123 112 127 106 132 102
+             Z" fill="#110E10" />
+
+    <path d="M126 114
+             C123 126 127 139 136 148
+             C144 156 150 166 148 178
+             C147 190 138 202 127 210
+             C120 216 114 222 117 228
+             C120 231 126 229 132 223
+             C144 213 154 199 154 181
+             C154 166 145 154 136 144
+             C130 135 127 124 129 114
+             Z" fill="#110E10" />
+
+    <!-- Main Stem of the Serif 'B' -->
+    <path d="M144 102 L156 102 L156 210 L144 210 C139 210 138 214 138 216 L171 216 C171 214 170 210 165 210 L159 210 L159 102 L165 102 C170 102 171 98 171 96 L138 96 C138 98 139 102 144 102 Z" fill="#110E10" />
+
+    <!-- Upper Bowl of the 'B' -->
+    <path d="M156 96
+             L187 96
+             C204 96 217 105 217 123
+             C217 139 204 148 186 150
+             L156 150
+             L156 132
+             L183 132
+             C193 132 200 127 200 121
+             C200 114 193 111 181 111
+             L156 111
+             Z" fill="#110E10" />
+
+    <!-- Lower Bowl of the 'B' with Gold Bevel Accent -->
+    <path d="M156 147
+             L190 147
+             C210 147 226 159 226 180
+             C226 201 208 216 186 216
+             L151 216
+             L151 198
+             L184 198
+             C198 198 207 190 207 180
+             C207 169 198 162 183 162
+             L156 162
+             Z" fill="#110E10" />
+
+    <!-- Gold Accent Bevel Highlights on 'B' Curves -->
+    <path d="M187 99 C201 99 213 106 213 121 C213 135 201 144 186 145" stroke="url(#slGold)" stroke-width="1.8" fill="none" opacity="0.9" />
+    <path d="M190 150 C207 150 222 160 222 178 C222 196 205 211 186 211" stroke="url(#slGold)" stroke-width="2.1" fill="none" opacity="0.9" />
+  </g>
+</svg>

@@ -23,7 +23,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
     <section
       id="home"
       onMouseMove={handleMouseMove}
-      className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#FFFDFC] via-[#FFF5F7] to-[#FCECEF]"
+      className="relative min-h-screen pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-16 md:pb-24 flex flex-col justify-start lg:justify-center overflow-hidden bg-gradient-to-b from-[#FFFDFC] via-[#FFF5F7] to-[#FCECEF]"
     >
       {/* Layered Atmospheric Ambient Glows */}
       <div
@@ -51,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-2 sm:mt-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Brand Typography & Call to Actions */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
@@ -128,6 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                   src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=900&auto=format&fit=crop"
                   alt="Thara Blooms Haute Beauty Model"
                   fetchPriority="high"
+                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
 
@@ -152,7 +153,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                   transform: `translate(${mouseOffset.x * -0.5}px, ${mouseOffset.y * -0.5}px)`
                 }}
               >
-                <Logo variant="badge" className="w-12 h-12" />
+                <Logo variant="short-logo" size="md" />
               </div>
 
               {/* Floating Element 2: Golden Butterfly & Flower Accent (Bottom Right) */}

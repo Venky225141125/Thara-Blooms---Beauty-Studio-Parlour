@@ -118,7 +118,7 @@ export const services: ServiceItem[] = [
     duration: "20 - 45 mins",
     tagline: "Clean Lines & Feather-Smooth Skin",
     description: "Ultra-precise eyebrow contouring and sensitive skin-safe waxing using soothing chamomile balms and aloe vera cooling treatments.",
-    image: "https://images.unsplash.com/photo-1512290900672-1f48ec3a0d5c?q=80&w=1000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
     featured: false,
     treatments: [
       "Artisanal Thread Eyebrow Architecture",
