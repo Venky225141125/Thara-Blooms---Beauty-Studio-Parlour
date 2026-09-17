@@ -87,17 +87,17 @@ export const TreatmentsMenu: React.FC<TreatmentsMenuProps> = ({ onOpenBooking })
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#C9A44C]/15 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#C9A44C]/15 flex flex-wrap items-center justify-between gap-3">
                 <span className="text-xs text-[#8D8185]">
                   Custom consultation included
                 </span>
                 <button
                   type="button"
                   onClick={() => onOpenBooking(service.title)}
-                  className="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-[#8D6824] hover:text-white bg-[#FFF5F7] hover:bg-[#D98296] border border-[#C9A44C]/35 transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-[#8D6824] hover:text-white bg-[#FFF5F7] hover:bg-[#D98296] border border-[#C9A44C]/35 transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap"
                 >
-                  <span>Book Ritual</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span className="whitespace-nowrap">Book Ritual</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </button>
               </div>
             </div>

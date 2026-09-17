@@ -100,7 +100,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenBooking }) => {
                   </span>
                   <div className="text-xs text-[#655B5E] mt-0.5 space-y-0.5">
                     {siteConfig.hours.map((h, idx) => (
-                      <div key={idx} className="flex justify-between gap-2">
+                      <div key={idx} className="flex flex-col justify-between gap-2">
                         <span className="font-medium text-[#171315]">{h.day}:</span>
                         <span>{h.time}</span>
                       </div>
@@ -180,20 +180,20 @@ export const Contact: React.FC<ContactProps> = ({ onOpenBooking }) => {
               <button
                 type="button"
                 onClick={onOpenBooking}
-                className="w-full py-4 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-[#D98296] to-[#C96C83] hover:from-[#C96C83] hover:to-[#B55970] shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2"
+                className="w-full py-3.5 sm:py-4 px-4 sm:px-6 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-[#D98296] to-[#C96C83] hover:from-[#C96C83] hover:to-[#B55970] shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2.5 text-center leading-normal"
               >
-                <Calendar className="w-4 h-4" />
-                Reserve With Appointment Concierge
+                <Calendar className="w-4 h-4 shrink-0" />
+                <span className="text-center">Reserve With Appointment Concierge</span>
               </button>
 
               <a
                 href={getWhatsAppBookingUrl("Hi Thara Blooms, I have a quick question about your services.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#58745F] border border-[#58745F]/35 bg-white hover:bg-[#58745F]/5 transition-all flex items-center justify-center gap-2"
+                className="w-full py-3 sm:py-3.5 px-4 sm:px-6 rounded-full text-xs font-semibold uppercase tracking-wider text-[#58745F] border border-[#58745F]/35 bg-white hover:bg-[#58745F]/5 transition-all flex items-center justify-center gap-2.5 text-center leading-normal"
               >
-                <MessageSquare className="w-4 h-4" />
-                Direct Chat on WhatsApp
+                <MessageSquare className="w-4 h-4 shrink-0" />
+                <span className="text-center">Direct Chat on WhatsApp</span>
               </a>
             </div>
           </div>

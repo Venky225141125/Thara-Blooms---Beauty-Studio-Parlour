@@ -139,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
       {/* Full-Screen Elegant Mobile Navigation Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-[#FFFDFC]/98 backdrop-blur-2xl flex flex-col justify-between pt-24 pb-8 px-6 lg:hidden animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-[#FFFDFC]/98 backdrop-blur-2xl flex flex-col lg:hidden animate-in fade-in duration-200 overflow-y-auto"
           role="dialog"
           aria-modal="true"
         >
@@ -147,73 +147,89 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           <div className="absolute top-1/4 right-0 w-72 h-72 rounded-full bg-[#F4C7D0]/30 blur-3xl pointer-events-none" />
           <div className="absolute bottom-1/4 left-0 w-64 h-64 rounded-full bg-[#E6CE8A]/20 blur-3xl pointer-events-none" />
 
-          {/* Navigation Links List */}
-          <div className="flex flex-col space-y-4 my-auto">
-            {/* Top Logo in Drawer */}
-            <div className="flex justify-center pb-2">
-              <Logo variant="logo-top-text-bottom" size="sm" />
-            </div>
-
-            <span className="text-[10px] tracking-[0.26em] uppercase font-semibold text-[#A77A28]">
-              Navigation
-            </span>
-            {navLinks.map(link => (
-              <button
-                key={link.label}
-                type="button"
-                onClick={() => handleLinkClick(link.href)}
-                className="text-left font-serif text-2xl sm:text-3xl text-[#171315] hover:text-[#C96C83] transition-colors py-1 flex items-center justify-between group"
-              >
-                <span>{link.label}</span>
-                <ArrowRight className="w-4 h-4 text-[#C9A44C] opacity-0 group-hover:opacity-100 transition-opacity" />
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Menu Footer Details */}
-          <div className="border-t border-[#C9A44C]/20 pt-6 space-y-4">
-            <div className="flex items-center justify-between text-xs text-[#655B5E]">
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#C9A44C]" />
-                <span>Mon – Sun (Open Daily)</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-[#C9A44C]" />
-                <span>{siteConfig.contact.displayPhone}</span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              <a
-                href={siteConfig.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-[#C9A44C]/35 text-xs font-semibold uppercase tracking-wider text-[#171315] bg-white/70"
-              >
-                <Instagram className="w-4 h-4 text-[#C96C83]" />
-                Instagram
-              </a>
-              <a
-                href={getWhatsAppBookingUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-[#58745F]/40 text-xs font-semibold uppercase tracking-wider text-[#58745F] bg-[#58745F]/5"
-              >
-                WhatsApp
-              </a>
-            </div>
-
+          {/* Top Bar inside Overlay: Logo & Close Button */}
+          <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#FFFDFC]/90 backdrop-blur-md border-b border-[#C9A44C]/15">
+            <Logo variant="short-logo" size="xs" />
             <button
               type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full py-3.5 rounded-full text-center text-xs font-semibold tracking-wider uppercase text-white bg-gradient-to-r from-[#D98296] to-[#C96C83] shadow-md flex items-center justify-center gap-2"
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 text-[#171315] rounded-xl hover:bg-[#FCECEF] transition-colors focus:outline-hidden"
+              aria-label="Close navigation menu"
             >
-              <Calendar className="w-4 h-4" />
-              Book An Appointment
+              <X className="w-6 h-6" />
             </button>
+          </div>
+
+          {/* Inner Content with generous bottom padding so it is never cut off by MobileActionBar or screen edge */}
+          <div className="flex-1 flex flex-col justify-between px-6 pt-6 pb-28 sm:pb-12 min-h-max space-y-8">
+            {/* Top Logo and Navigation Links List */}
+            <div className="flex flex-col space-y-4">
+              {/* Stacked Emblem */}
+              <div className="flex justify-center pb-2">
+                <Logo variant="logo-top-text-bottom" size="sm" />
+              </div>
+
+              <span className="text-[10px] tracking-[0.26em] uppercase font-semibold text-[#A77A28]">
+                Navigation
+              </span>
+              {navLinks.map(link => (
+                <button
+                  key={link.label}
+                  type="button"
+                  onClick={() => handleLinkClick(link.href)}
+                  className="text-left font-serif text-2xl sm:text-3xl text-[#171315] hover:text-[#C96C83] transition-colors py-1 flex items-center justify-between group"
+                >
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-4 h-4 text-[#C9A44C] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Menu Footer Details */}
+            <div className="border-t border-[#C9A44C]/20 pt-6 space-y-4">
+              <div className="flex items-center justify-between text-xs text-[#655B5E]">
+                <div className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#C9A44C]" />
+                  <span>Mon – Sun (Open Daily)</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-[#C9A44C]" />
+                  <span>{siteConfig.contact.displayPhone}</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <a
+                  href={siteConfig.instagram.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-[#C9A44C]/35 text-xs font-semibold uppercase tracking-wider text-[#171315] bg-white/70"
+                >
+                  <Instagram className="w-4 h-4 text-[#C96C83]" />
+                  Instagram
+                </a>
+                <a
+                  href={getWhatsAppBookingUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-[#58745F]/40 text-xs font-semibold uppercase tracking-wider text-[#58745F] bg-[#58745F]/5"
+                >
+                  WhatsApp
+                </a>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenBooking();
+                }}
+                className="w-full py-3.5 rounded-full text-center text-xs font-semibold tracking-wider uppercase text-white bg-gradient-to-r from-[#D98296] to-[#C96C83] shadow-md flex items-center justify-center gap-2"
+              >
+                <Calendar className="w-4 h-4" />
+                Book An Appointment
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -5,7 +5,7 @@ import { Instagram, Phone, Mail, MapPin, Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-[#171315] text-[#FBF7F5] pt-16 pb-24 md:pb-16 border-t border-[#C9A44C]/30 overflow-hidden">
+    <footer className="relative bg-[#171315] text-[#FBF7F5] pt-16 pb-32 sm:pb-20 md:pb-16 border-t border-[#C9A44C]/30 overflow-hidden">
       {/* Background Subtle Floral Aura */}
       <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full bg-[#D98296]/8 blur-[100px] pointer-events-none" />
 
@@ -13,7 +13,24 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col items-start space-y-4">
-            <Logo variant="long-logo" size="lg" isDark={true} className="max-w-[280px] sm:max-w-[340px]" />
+            <div className="flex items-center gap-4">
+              {/* Circular Crest with luminous blush background for crystal-clear visibility on dark footer */}
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#FFF5F7] via-[#FCE7EC] to-[#F8D8DF] p-1 shadow-md border border-[#C9A44C]/60 flex items-center justify-center shrink-0 overflow-hidden">
+                <Logo variant="short-logo" size="sm" className="w-full h-full object-contain" />
+              </div>
+              <div className="flex flex-col justify-center items-center text-center">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-[0.16em] text-white leading-tight">
+                  THARA BLOOMS
+                </span>
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C9A44C]/60 to-transparent my-1" />
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.35em] text-[#E6CE8A] uppercase leading-tight">
+                  BEAUTY STUDIO &amp; PARLOUR
+                </span>
+                <span className="font-cormorant italic text-xs sm:text-sm text-[#F49EB0] tracking-wider mt-1 text-center">
+                  — Glow with Grace ♥ —
+                </span>
+              </div>
+            </div>
             <p className="text-xs sm:text-sm text-[#8D8185] max-w-sm leading-relaxed mt-2 font-normal">
               {siteConfig.description}
             </p>

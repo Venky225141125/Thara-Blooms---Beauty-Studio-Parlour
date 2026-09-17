@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 220" width="100%" height="100%" fill="none">
   <defs>
-    <!-- Soft Blush Wash for Dark Background -->
+    <!-- Soft Blush Wash for Crest Background (same as header) -->
     <radialGradient id="lldBlush" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stopColor="#FFF5F7" />
       <stop offset="65%" stopColor="#FCE7EC" />
@@ -9,11 +9,11 @@
 
     <!-- Metallic Gold Gradient -->
     <linearGradient id="lldGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#E6CE8A" />
-      <stop offset="25%" stopColor="#FFF2C6" />
-      <stop offset="55%" stopColor="#D8B55C" />
-      <stop offset="85%" stopColor="#F5E4AA" />
-      <stop offset="100%" stopColor="#C9A44C" />
+      <stop offset="0%" stopColor="#D8B55C" />
+      <stop offset="25%" stopColor="#F5E4AA" />
+      <stop offset="55%" stopColor="#C9A44C" />
+      <stop offset="85%" stopColor="#E6CE8A" />
+      <stop offset="100%" stopColor="#9E7624" />
     </linearGradient>
 
     <!-- Floral Petals -->
@@ -35,16 +35,17 @@
     </linearGradient>
 
     <filter id="lldShadow" x="-10%" y="-10%" width="125%" height="125%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.3" />
+      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#110E10" floodOpacity="0.18" />
     </filter>
   </defs>
 
-  <!-- === LEFT: CIRCULAR EMBLEM CREST === -->
+  <!-- === LEFT: CIRCULAR EMBLEM CREST (IDENTICAL FORMAT TO HEADER WITH BLUSH BACKGROUND & ACCENTS) === -->
   <g transform="translate(10, 10)">
+    <!-- Scale to fit 200x200 nicely inside 220 height -->
     <g transform="scale(0.6667)">
-      <!-- Blush Wash Circle -->
+      <!-- Blush Wash Circle Background -->
       <circle cx="150" cy="150" r="132" fill="url(#lldBlush)" />
-      <!-- Metallic Gold Rings -->
+      <!-- Metallic Gold Concentric Rings -->
       <circle cx="150" cy="150" r="126" stroke="url(#lldGold)" stroke-width="2.5" />
       <circle cx="150" cy="150" r="118" stroke="url(#lldGold)" stroke-width="1.2" opacity="0.8" />
 
@@ -57,54 +58,70 @@
         <path d="M93 54 C96 40 108 36 117 39 C114 48 105 54 93 54 Z" fill="url(#lldGreen)" />
         <path d="M117 42 C123 30 135 30 141 35 C137 42 129 45 117 42 Z" fill="url(#lldGreen)" />
         <ellipse cx="96" cy="38" rx="5" ry="6.5" fill="url(#lldPetalPink)" />
-        <ellipse cx="78" cy="48" rx="6" ry="7.5" fill="url(#lldPetalDeep)" />
+        <ellipse cx="110" cy="33" rx="4.5" ry="6" fill="url(#lldPetalPink)" />
 
-        <g transform="translate(108, 60)">
-          <path d="M0 -15 C6 -24 20 -20 18 -8 C15 2 0 10 -4 10 C-8 10 -15 2 -12 -8 C-10 -20 4 -24 0 -15 Z" fill="url(#lldPetalPink)" />
-          <circle cx="0" cy="-2" r="3.5" fill="#FFE27A" />
+        <g transform="translate(84, 69)">
+          <path d="M0 0 C-15 -27 15 -27 0 0 Z" fill="url(#lldPetalPink)" />
+          <path d="M0 0 C24 -18 33 12 0 0 Z" fill="url(#lldPetalPink)" />
+          <path d="M0 0 C18 24 -12 30 0 0 Z" fill="url(#lldPetalPink)" />
+          <path d="M0 0 C-24 18 -30 -12 0 0 Z" fill="url(#lldPetalPink)" />
+          <path d="M0 0 C-12 -24 21 -18 0 0 Z" fill="url(#lldPetalDeep)" opacity="0.85" />
+          <path d="M0 0 C21 -6 21 21 0 0 Z" fill="url(#lldPetalDeep)" opacity="0.85" />
+          <circle cx="0" cy="0" r="4.8" fill="#D98296" />
+          <circle cx="-2.2" cy="-2.2" r="1.8" fill="#FCE4AA" />
+          <circle cx="2.2" cy="-1.8" r="1.6" fill="#FCE4AA" />
+          <circle cx="1.8" cy="2.2" r="1.8" fill="#FCE4AA" />
+          <circle cx="-1.8" cy="2" r="1.6" fill="#FCE4AA" />
+          <circle cx="0" cy="0" r="2" fill="#E6CE8A" />
         </g>
-        <g transform="translate(75, 84)">
-          <path d="M0 -14 C5 -22 18 -18 16 -7 C13 2 0 9 -3 9 C-7 9 -13 2 -10 -7 C-8 -18 3 -22 0 -14 Z" fill="url(#lldPetalDeep)" />
-          <circle cx="0" cy="-2" r="3" fill="#FFE27A" />
+        <g transform="translate(111, 54) scale(0.72)">
+          <circle cx="0" cy="-12" r="10" fill="url(#lldPetalPink)" />
+          <circle cx="12" cy="-3" r="10" fill="url(#lldPetalPink)" />
+          <circle cx="8" cy="12" r="10" fill="url(#lldPetalPink)" />
+          <circle cx="-8" cy="12" r="10" fill="url(#lldPetalPink)" />
+          <circle cx="-12" cy="-3" r="10" fill="url(#lldPetalPink)" />
+          <circle cx="0" cy="1" r="5" fill="#E6CE8A" />
         </g>
       </g>
 
-      <!-- Bottom-Right Floral Bouquet -->
+      <!-- Bottom-Right Floral Sprig -->
       <g filter="url(#lldShadow)">
-        <path d="M228 195 C234 210 228 231 210 243 C198 252 180 255 168 255" stroke="url(#lldGreen)" stroke-width="1.8" fill="none" opacity="0.85" />
-        <path d="M240 183 C250 189 252 201 246 210 C238 204 234 192 240 183 Z" fill="url(#lldGreen)" />
-        <path d="M252 207 C261 213 261 225 253 233 C247 225 244 213 252 207 Z" fill="url(#lldGreen)" />
-        <path d="M234 225 C240 237 234 249 225 252 C223 243 226 231 234 225 Z" fill="url(#lldGreen)" />
-        <ellipse cx="204" cy="262" rx="5" ry="6.5" fill="url(#lldPetalPink)" />
-        <ellipse cx="222" cy="252" rx="6" ry="7.5" fill="url(#lldPetalDeep)" />
-
-        <g transform="translate(192, 240)">
-          <path d="M0 15 C-6 24 -20 20 -18 8 C-15 -2 0 -10 4 -10 C8 -10 15 -2 12 8 C10 20 -4 24 0 15 Z" fill="url(#lldPetalPink)" />
-          <circle cx="0" cy="2" r="3.5" fill="#FFE27A" />
-        </g>
-        <g transform="translate(225, 216)">
-          <path d="M0 14 C-5 22 -18 18 -16 7 C-13 -2 0 -9 3 -9 C7 -9 13 -2 10 7 C8 18 -3 22 0 14 Z" fill="url(#lldPetalDeep)" />
-          <circle cx="0" cy="2" r="3" fill="#FFE27A" />
+        <path d="M195 234 C210 228 228 216 240 201 C249 189 255 171 255 159" stroke="url(#lldGreen)" stroke-width="1.8" fill="none" opacity="0.85" />
+        <path d="M222 228 C231 236 243 234 249 225 C243 219 231 219 222 228 Z" fill="url(#lldGreen)" />
+        <path d="M237 207 C249 212 258 206 261 195 C252 192 243 198 237 207 Z" fill="url(#lldGreen)" />
+        <path d="M249 183 C260 185 267 176 267 165 C258 165 252 174 249 183 Z" fill="url(#lldGreen)" />
+        <g transform="translate(222, 201) scale(0.9)">
+          <path d="M0 0 C-15 -24 15 -24 0 0 Z" fill="url(#lldPetalPink)" />
+          <path d="M0 0 C24 -15 27 15 0 0 Z" fill="url(#lldPetalPink)" />
+          <path d="M0 0 C15 24 -15 24 0 0 Z" fill="url(#lldPetalPink)" />
+          <path d="M0 0 C-24 15 -24 -15 0 0 Z" fill="url(#lldPetalPink)" />
+          <circle cx="0" cy="0" r="4.5" fill="#D98296" />
+          <circle cx="0" cy="0" r="2.2" fill="#FCE4AA" />
         </g>
       </g>
 
-      <!-- Center Woman Profile Silhouette -->
-      <g fill="#110E10">
-        <path d="M148 94 C152 90 156 89 160 91 C164 93 166 98 165 103 C164 107 160 110 156 111 C159 113 162 116 161 120 C160 124 156 126 153 126 C155 129 157 132 155 136 C153 139 148 141 144 140 C146 145 145 151 141 155 C137 159 132 161 128 161 C133 167 134 175 131 182 C127 189 119 193 112 192 C116 200 115 210 109 216 C103 222 93 223 85 220 C81 228 73 234 64 233 C54 232 46 224 46 214 C46 204 53 196 63 195 C64 186 70 178 78 175 C77 168 81 161 88 157 C89 149 95 143 103 141 C105 133 112 128 120 127 C122 120 128 115 135 114 C137 106 143 100 148 94 Z" />
-        <path d="M165 103 C168 104 172 107 174 110 C175 113 173 116 170 117 C174 119 176 123 175 127 C174 130 170 132 166 132 C169 135 170 139 168 143 C166 146 161 148 157 147" fill="none" stroke="#110E10" stroke-width="2" stroke-linecap="round" />
+      <!-- Butterfly on Top Right -->
+      <g transform="translate(189, 84) rotate(18) scale(1.1)">
+        <path d="M0 0 C-6 -18 -21 -18 -18 -3 C-15 6 -6 6 0 0 Z" fill="url(#lldPetalPink)" stroke="#110E10" stroke-width="1.1" />
+        <path d="M0 0 C9 -21 27 -18 21 -3 C18 6 6 6 0 0 Z" fill="url(#lldPetalPink)" stroke="#110E10" stroke-width="1.1" />
+        <path d="M0 0 C-7 6 -12 15 -6 16 C-1 16 0 7 0 0 Z" fill="url(#lldPetalDeep)" stroke="#110E10" stroke-width="0.9" />
+        <path d="M0 0 C7 6 12 15 6 16 C1 16 0 7 0 0 Z" fill="url(#lldPetalDeep)" stroke="#110E10" stroke-width="0.9" />
+        <ellipse cx="0" cy="3" rx="1.6" ry="8" fill="#110E10" />
+        <path d="M-0.7 -5 C-3 -9 -6 -10 -8 -10" stroke="#110E10" stroke-width="0.9" stroke-linecap="round" />
+        <path d="M0.7 -5 C3 -9 6 -10 8 -10" stroke="#110E10" stroke-width="0.9" stroke-linecap="round" />
       </g>
 
-      <!-- Interlocking Monogram TB in Gold -->
-      <g fill="url(#lldGold)" filter="url(#lldShadow)">
-        <path d="M124 112 L182 112 L182 122 L158 122 L158 184 L144 184 L144 122 L124 122 Z" opacity="0.95" />
-        <path d="M148 126 L178 126 C188 126 196 132 196 141 C196 147 192 152 186 154 C194 157 199 163 199 171 C199 181 190 188 178 188 L148 188 Z M162 136 L162 151 L176 151 C181 151 185 147 185 143 C185 139 181 136 176 136 Z M162 161 L162 178 L178 178 C183 178 187 174 187 169 C187 165 183 161 178 161 Z" opacity="0.95" />
-      </g>
-
-      <!-- Butterfly on Crest -->
-      <g transform="translate(196, 92) rotate(-15) scale(0.95)" fill="url(#lldGold)" filter="url(#lldShadow)">
-        <path d="M0 0 C4 -10 14 -12 18 -7 C22 -2 18 8 10 10 C16 14 18 22 13 25 C8 28 2 24 0 16 Z" />
-        <path d="M0 0 C-4 -10 -14 -12 -18 -7 C-22 -2 -18 8 -10 10 C-16 14 -18 22 -13 25 C-8 28 -2 24 0 16 Z" opacity="0.75" />
-        <line x1="0" y1="-8" x2="0" y2="20" stroke="url(#lldGold)" stroke-width="1.5" />
+      <!-- Center Interlocking TB Monogram with Woman Profile Silhouette & Flowing Hair -->
+      <g>
+        <path d="M99 72 L186 72 C186 72 180 81 171 81 L147 81 L147 108 C147 108 138 102 132 96 L132 81 L111 81 C102 81 99 72 99 72 Z" fill="#110E10" />
+        <path d="M111 81 C108 87 105 94 100 99 C97 102 93 105 90 108 C87 111 85 115 88 118 C91 121 96 121 94 126 C93 129 88 130 87 133 C85 136 90 139 93 141 C96 142 93 145 88 148 C85 151 87 156 91 159 C96 162 100 168 102 174 C103 181 108 189 114 195 C123 202 135 205 141 204 C132 199 126 190 123 180 C120 171 121 162 118 153 C115 144 111 138 111 129 C111 120 115 111 121 105 C126 99 132 93 132 81 Z" fill="#110E10" />
+        <path d="M114 102 C109 112 112 126 120 135 C127 144 135 153 136 163 C138 174 132 186 121 193 C114 199 108 207 108 214 C108 219 114 222 121 219 C132 214 141 204 144 192 C147 177 141 163 132 153 C124 144 120 132 121 121 C123 112 127 106 132 102 Z" fill="#110E10" />
+        <path d="M126 114 C123 126 127 139 136 148 C144 156 150 166 148 178 C147 190 138 202 127 210 C120 216 114 222 117 228 C120 231 126 229 132 223 C144 213 154 199 154 181 C154 166 145 154 136 144 C130 135 127 124 129 114 Z" fill="#110E10" />
+        <path d="M144 102 L156 102 L156 210 L144 210 C139 210 138 214 138 216 L171 216 C171 214 170 210 165 210 L159 210 L159 102 L165 102 C170 102 171 98 171 96 L138 96 C138 98 139 102 144 102 Z" fill="#110E10" />
+        <path d="M156 96 L187 96 C204 96 217 105 217 123 C217 139 204 148 186 150 L156 150 L156 132 L183 132 C193 132 200 127 200 121 C200 114 193 111 181 111 L156 111 Z" fill="#110E10" />
+        <path d="M156 147 L190 147 C210 147 226 159 226 180 C226 201 208 216 186 216 L151 216 L151 198 L184 198 C198 198 207 190 207 180 C207 169 198 162 183 162 L156 162 Z" fill="#110E10" />
+        <path d="M187 99 C201 99 213 106 213 121 C213 135 201 144 186 145" stroke="url(#lldGold)" stroke-width="1.8" fill="none" opacity="0.9" />
+        <path d="M190 150 C207 150 222 160 222 178 C222 196 205 211 186 211" stroke="url(#lldGold)" stroke-width="2.1" fill="none" opacity="0.9" />
       </g>
     </g>
   </g>
