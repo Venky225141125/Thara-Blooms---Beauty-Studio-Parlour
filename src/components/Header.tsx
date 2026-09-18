@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { siteConfig, getWhatsAppBookingUrl } from '../data/siteConfig';
-import { Menu, X, Instagram, Calendar, Phone, Clock, ArrowRight } from 'lucide-react';
+import { Menu, X, Instagram, Calendar, Phone, Clock, ArrowRight, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -65,9 +65,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             className="flex items-center focus:outline-hidden group"
             aria-label="Thara Blooms Home"
           >
-            {/* Mobile short-logo, Desktop long-logo */}
+            {/* Mobile: Full brand logo with emblem & typography */}
             <div className="block sm:hidden">
-              <Logo variant="short-logo" size="sm" />
+              <Logo variant="long-logo" size="xs" className="h-8 xs:h-9 max-w-[170px] xs:max-w-[210px]" />
             </div>
             <div className="hidden sm:block">
               <Logo variant="long-logo" size="sm" />
@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           </nav>
 
           {/* Desktop Quick Actions */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             {/* Instagram Link */}
             <a
               href={siteConfig.instagram.url}
@@ -106,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               href={getWhatsAppBookingUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 px-3.5 py-2 text-xs font-semibold tracking-wider text-[#58745F] rounded-full border border-[#58745F]/30 hover:bg-[#58745F]/10 transition-colors uppercase"
+              className="flex items-center gap-2 px-3.5 py-2 text-xs font-semibold tracking-wider text-[#58745F] rounded-full border border-[#58745F]/30 hover:bg-[#58745F]/10 transition-colors uppercase"
               aria-label="Chat on WhatsApp"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#58745F] animate-pulse" />
@@ -124,15 +124,39 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             </button>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#171315] rounded-xl hover:bg-[#FCECEF] transition-colors focus:outline-hidden"
-            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile & Tablet Quick Actions Cluster */}
+          <div className="flex lg:hidden items-center gap-1.5 xs:gap-2">
+            {/* Direct WhatsApp Quick Chat */}
+            <a
+              href={getWhatsAppBookingUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xs:flex items-center justify-center p-2 text-[#58745F] hover:text-[#3B5441] rounded-full border border-[#58745F]/25 bg-[#58745F]/5 active:scale-95 transition-all"
+              aria-label="WhatsApp quick chat"
+            >
+              <MessageCircle className="w-4 h-4" />
+            </a>
+
+            {/* Compact Book Appointment CTA Pill */}
+            <button
+              type="button"
+              onClick={onOpenBooking}
+              className="flex items-center gap-1.5 px-3 py-1.5 xs:px-3.5 xs:py-2 rounded-full text-[10.5px] xs:text-xs font-semibold tracking-wider uppercase text-white bg-gradient-to-r from-[#D98296] to-[#C96C83] hover:from-[#C96C83] hover:to-[#B55970] shadow-xs active:scale-95 transition-all"
+            >
+              <Calendar className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
+              <span>Book</span>
+            </button>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#171315] hover:text-[#C96C83] rounded-xl hover:bg-[#FCECEF] transition-colors focus:outline-hidden"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -148,8 +172,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           <div className="absolute bottom-1/4 left-0 w-64 h-64 rounded-full bg-[#E6CE8A]/20 blur-3xl pointer-events-none" />
 
           {/* Top Bar inside Overlay: Logo & Close Button */}
-          <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-[#FFFDFC]/90 backdrop-blur-md border-b border-[#C9A44C]/15">
-            <Logo variant="short-logo" size="xs" />
+          <div className="sticky top-0 z-10 flex items-center justify-between px-5 sm:px-6 py-4 bg-[#FFFDFC]/90 backdrop-blur-md border-b border-[#C9A44C]/15">
+            <Logo variant="long-logo" size="xs" className="h-8 max-w-[170px]" />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
