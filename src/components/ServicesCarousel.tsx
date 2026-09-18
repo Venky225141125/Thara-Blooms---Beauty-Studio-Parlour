@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { services } from '../data/services';
 import { ServiceCard } from './ServiceCard';
-import { ChevronLeft, ChevronRight, Sparkles, MoveHorizontal } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, Compass } from 'lucide-react';
 
 interface ServicesCarouselProps {
   onOpenBooking: (serviceTitle?: string) => void;
@@ -10,7 +10,7 @@ interface ServicesCarouselProps {
 export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBooking }) => {
   const total = services.length;
 
-  // Continuous virtual position (can be float during drag or animation)
+  // Continuous virtual position (float during drag or animation)
   const [scrollPos, setScrollPos] = useState<number>(0);
   const scrollPosRef = useRef<number>(0);
 
@@ -30,13 +30,22 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
   const animationFrameRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Responsive step size (in pixels) representing distance between consecutive cards
-  const getStepSize = useCallback((): number => {
-    if (typeof window === 'undefined') return 270;
+  // Responsive half-circle curve parameters
+  const getCurveParams = useCallback(() => {
+    if (typeof window === 'undefined') {
+      return { angleStep: 26, radiusX: 620, radiusY: 75, radiusZ: 320, stepPx: 260 };
+    }
     const w = window.innerWidth;
-    if (w < 640) return 185;
-    if (w < 1024) return 235;
-    return 280;
+    if (w < 640) {
+      // Mobile: tuned radius and angles so all 5 cards curve gracefully within viewport
+      return { angleStep: 22, radiusX: 380, radiusY: 45, radiusZ: 190, stepPx: 175 };
+    }
+    if (w < 1024) {
+      // Tablet
+      return { angleStep: 24, radiusX: 500, radiusY: 60, radiusZ: 250, stepPx: 220 };
+    }
+    // Desktop
+    return { angleStep: 26, radiusX: 620, radiusY: 75, radiusZ: 320, stepPx: 260 };
   }, []);
 
   // Smooth animation to a target index position
@@ -56,7 +65,7 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
       return;
     }
 
-    const duration = Math.min(650, Math.max(340, Math.abs(diff) * 210));
+    const duration = Math.min(680, Math.max(340, Math.abs(diff) * 220));
     const startTime = performance.now();
 
     const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -136,7 +145,6 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
 
   // Pointer Down (Mouse or Touch)
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    // If clicking on an internal action button or link, let it proceed
     if ((e.target as HTMLElement).closest('button, a')) return;
 
     if (animationFrameRef.current) {
@@ -159,7 +167,7 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
     setIsDragging(true);
   };
 
-  // Pointer Move: Continuous, multi-card fluid drag
+  // Pointer Move: Continuous, multi-card fluid drag along the curve
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging || pointerStartX.current === null) return;
 
@@ -178,9 +186,8 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
       hasMovedSignificantly.current = true;
     }
 
-    // Continuous float displacement: supports dragging through as many items as desired
-    const stepSize = getStepSize();
-    const deltaIndices = totalDeltaPx / stepSize;
+    const { stepPx } = getCurveParams();
+    const deltaIndices = totalDeltaPx / stepPx;
     const newPos = startScrollPos.current - deltaIndices;
 
     setScrollPos(newPos);
@@ -205,9 +212,8 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
     setIsDragging(false);
     pointerStartX.current = null;
 
-    // Calculate inertia based on release speed
-    const stepSize = getStepSize();
-    const vIndicesPerSec = (velocity.current * 1000) / stepSize;
+    const { stepPx } = getCurveParams();
+    const vIndicesPerSec = (velocity.current * 1000) / stepPx;
     const momentum = Math.max(-2.5, Math.min(2.5, vIndicesPerSec * 0.24));
     const predicted = scrollPosRef.current - momentum;
     const target = Math.round(predicted);
@@ -219,14 +225,14 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
     }, 60);
   };
 
-  // Calculate 5 primary visible offerings + 2 buffer cards for seamless continuous scrolling
+  // Calculate 5 primary visible offerings along the curved half-circle arc:
   // Slots:
   // -2: Outer Sub-Left
   // -1: Immediate Sub-Left
-  //  0: Main Center Card
+  //  0: Main Center Card (Apex of the curve)
   // +1: Immediate Sub-Right
   // +2: Outer Sub-Right
-  // -3 and +3: Buffer cards smoothly fading in/out during continuous drag
+  // -3 and +3: Smooth buffer cards entering/exiting the arc
   const baseIndex = Math.floor(scrollPos);
   const fraction = scrollPos - baseIndex;
   const slots = [-3, -2, -1, 0, 1, 2, 3];
@@ -234,7 +240,7 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
   const visibleCards = slots.map(k => {
     const serviceIndex = ((baseIndex + k) % total + total) % total;
     const service = services[serviceIndex];
-    const dist = k - fraction; // continuous distance from the center (0 = active middle)
+    const dist = k - fraction; // continuous distance from the center
     const absDist = Math.abs(dist);
 
     return {
@@ -245,6 +251,8 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
       absDist,
     };
   });
+
+  const curveParams = getCurveParams();
 
   return (
     <div
@@ -261,13 +269,13 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
         isDragging ? 'cursor-grabbing' : 'cursor-grab'
       }`}
       role="region"
-      aria-label="Signature Offerings 5-Card Continuous Carousel"
+      aria-label="Signature Offerings Curved Half-Circle Carousel"
     >
       {/* Background Ambience Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[950px] h-[380px] rounded-full bg-[#FCECEF]/45 blur-[120px] pointer-events-none" />
 
       {/* Floating Previous and Next Arrow Controls */}
-      <div className="flex items-center justify-between absolute inset-x-2 sm:inset-x-4 md:inset-x-8 top-1/2 -translate-y-1/2 pointer-events-none z-40">
+      <div className="flex items-center justify-between absolute inset-x-2 sm:inset-x-4 md:inset-x-8 top-1/2 -translate-y-1/2 pointer-events-none z-50">
         <button
           type="button"
           onClick={handlePrev}
@@ -287,48 +295,69 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
         </button>
       </div>
 
-      {/* 5-Card Stage Display: Main Center + 2 Sub Left/Right + 2 Outer Sub Left/Right */}
-      <div className="relative w-full max-w-7xl mx-auto min-h-[480px] sm:min-h-[530px] md:min-h-[570px] flex items-center justify-center overflow-hidden px-2 sm:px-4">
+      {/* 3D Half-Circle Stage Container */}
+      <div
+        style={{
+          perspective: '1300px',
+          transformStyle: 'preserve-3d',
+        }}
+        className="relative w-full max-w-7xl mx-auto min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center justify-center overflow-hidden px-2 sm:px-4"
+      >
         {visibleCards.map(({ slot, service, dist, absDist }) => {
           const isCenter = absDist < 0.35;
           const isImmediateSub = absDist >= 0.35 && absDist < 1.45;
           const isOuterSub = absDist >= 1.45 && absDist < 2.45;
 
-          // Continuous optical translation step
-          const stepPx = getStepSize();
-          const translateX = dist * stepPx;
+          // Continuous angle along the half-circle arc
+          const angleDeg = dist * curveParams.angleStep;
+          const angleRad = (angleDeg * Math.PI) / 180;
 
-          // Continuous depth scale: Center=1.0, Sub=0.85, Outer=0.72, Buffer=0.60
-          const scale = Math.max(0.56, 1 - absDist * 0.145);
+          // 3D Semicircular / Half-Circle Arc coordinates:
+          // X: along the horizontal curve
+          const translateX = curveParams.radiusX * Math.sin(angleRad);
+          // Y: curved vertical arch (cards subtly drape along the curve)
+          const translateY = curveParams.radiusY * (1 - Math.cos(angleRad));
+          // Z: recedes back into 3D depth along the semi-circle
+          const translateZ = -curveParams.radiusZ * (1 - Math.cos(angleRad));
 
-          // Continuous opacity: Center=1.0, Sub=0.88, Outer=0.60, Buffer fades smoothly to 0
+          // 3D rotations: cards face inward toward the viewer along the curve
+          const rotateY = -angleDeg * 0.88;
+          // Subtle arc inclination tilt
+          const rotateZ = -angleDeg * 0.12;
+
+          // Scale smoothly decreases as cards move around the curve
+          const scale = Math.max(0.55, 1 - absDist * 0.13);
+
+          // Continuous opacity fading along the edges of the arc
           let opacity = 1;
           if (absDist > 2.5) {
             opacity = Math.max(0, 1 - (absDist - 2.5) / 0.5) * 0.35;
           } else if (absDist > 1.4) {
-            opacity = 0.58 - (absDist - 1.4) * 0.22;
+            opacity = 0.65 - (absDist - 1.4) * 0.25;
           } else if (absDist > 0.35) {
-            opacity = 0.88 - (absDist - 0.35) * 0.28;
+            opacity = 0.90 - (absDist - 0.35) * 0.24;
           }
 
           // Layering z-index based on optical distance
-          const zIndex = isCenter ? 35 : isImmediateSub ? 25 : isOuterSub ? 15 : 5;
+          const zIndex = isCenter ? 40 : isImmediateSub ? 30 : isOuterSub ? 20 : 10;
 
           return (
             <div
               key={`card-${slot}-${service.id}`}
               onClick={() => {
                 if (hasMovedSignificantly.current) return;
-                // If clicking an off-center card, animate it straight into the center
+                // If clicking an off-center card on the arc, animate it right to center
                 if (absDist >= 0.35) {
                   const target = Math.round(scrollPosRef.current + dist);
                   animateTo(target);
                 }
               }}
               style={{
-                transform: `translate3d(${translateX}px, 0, 0) scale(${scale})`,
+                transform: `translate3d(${translateX}px, ${translateY}px, ${translateZ}px) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`,
                 opacity,
                 zIndex,
+                transformOrigin: 'center center',
+                backfaceVisibility: 'hidden',
               }}
               className={`absolute transform-gpu transition-shadow duration-300 ${
                 isCenter
@@ -385,10 +414,10 @@ export const ServicesCarousel: React.FC<ServicesCarouselProps> = ({ onOpenBookin
           ))}
         </div>
 
-        {/* Continuous Drag Exploration Hint */}
+        {/* Half-Circle Curved Drag Navigation Hint */}
         <div className="flex items-center gap-1.5 text-[11px] text-[#A77A28] tracking-wider uppercase font-semibold mt-0.5">
-          <MoveHorizontal className="w-3.5 h-3.5" />
-          <span>Click &amp; drag continuously across offerings • Tap any sub-card to focus</span>
+          <Compass className="w-3.5 h-3.5" />
+          <span>Drag along the curved arc to browse offerings • Tap side cards to focus</span>
         </div>
       </div>
     </div>
